@@ -1,31 +1,21 @@
 package hello
 
-import org.springframework.boot._
-import org.springframework.boot.autoconfigure._
-import org.springframework.stereotype._
-import org.springframework.web.bind.annotation._
-import HelloWebApplication._
+import org.springframework.boot.SpringApplication
+import org.springframework.context.annotation._
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 
 /**
  * This object bootstraps Spring Boot web application.
  * Via Gradle: gradle bootRun
  *
- * @author saung
+ * @author vaibhav
  * @since 1.0
  */
+
+@EnableAutoConfiguration
 object HelloWebApplication {
 
-        def main(args: Array[String]) {
-           SpringApplication.run(classOf[HelloConfig]);
-        }
+ def main(args: Array[String]) {
+    SpringApplication.run(classOf[HelloConfig]);
+ }
 }
-
-@Controller
-@EnableAutoConfiguration
-class HelloConfig
-{
-@RequestMapping(Array("/"))
-@ResponseBody
-def home():String="Hello World!"
-}
-
